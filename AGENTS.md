@@ -51,6 +51,21 @@ To maintain repository integrity, agents MUST follow these rules:
 - The `nhc-opsx-commit` skill MUST be used to generate a `git` commit message and commit changes made WITH an OpenSpec workflow, but only AFTER the OpenSpec change has been archived. Warn the user if the `nhc-opsx-commit` skill is missing or inaccessible.
 - The `conventional-commits` skill MUST be used to generate a `git` commit message for changes made OUTSiDE of an OpenSpec workflow. Warn the user if the `conventional-commits` skill is missing or inaccessible.
 - NOTE: If unsure about which commit strategy applies, you MUST ask the user to avoid generating spurious or erroneous commits.
+### Major Features
+- Major features are comprised of two or more distinct OpenSpec changes, e.g. an MVP for a new front-end user interface or a new back-end service.
+- You MUST use `openspec-explore` develop a high-level plan for implementing the individual changes comprising a major feature.
+- You MUST use the `docs/plans/<major-feature-name>` directory as a workspace during `openspec-explore`:
+  - You MUST ignore ALL files in `docs/plans/archive` unless the user explicitly requests to review them.
+  - Before creating planning documents, you MUST **ask the user** to provide the name of the major feature if the user has not already provided one.
+  - You MUST review existing planning documents for context while developing `<major-feature-name>`.
+  - You MUST offer to record decisions, constraints, milestones, dependencies, or any other important information relevant to planning the major feature.
+  - You MUST offer to create or update a current list of changes as they become clear.
+  - You MUST include a dependency diagram when recording the current list of changes, if the dependencies are clear.
+  - You MAY store high-level planning files directly under `docs/plans`, e.g. project-level guidance or decisions rather than feature-level information.
+  - DO NOT store OpenSpec artifacts under `docs/plans/<major-feature-name>`---the directory MUST ONLY contain Markdown files required to plan the changes comprising `<major-feature-name>`.
+  - You MAY offer to create the OpenSpec artifacts for a concrete, implementable change.
+  - Prefer `openspec-ff-change` over `openspec-new`/`openspec-continue` when creating change artifacts for a major feature.
+
 
 Most common sequence of `openspec` operations:
 1. `opsx-new <name>`: Initialize the change.
