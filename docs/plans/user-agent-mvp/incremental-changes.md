@@ -33,6 +33,8 @@ Depends on:
 
 ### 3. `add-attention-span-builder`
 
+Status: OpenSpec artifacts created.
+
 Purpose:
 - Add host-neutral application logic that converts ordered `ForegroundObservation` values into completed `AttentionSpan` records.
 - Handle app/window context changes.
@@ -43,6 +45,8 @@ Depends on:
 
 ### 4. `add-tracking-gap-modeling`
 
+Status: OpenSpec artifacts created.
+
 Purpose:
 - Add host-neutral rules for explicit `TrackingGap` creation.
 - Represent stopped, crashed, system sleep, session locked, logged out, and unknown untracked time.
@@ -52,6 +56,8 @@ Depends on:
 - `add-attention-domain-contracts`
 
 ### 5. `add-local-usage-persistence`
+
+Status: OpenSpec artifacts created.
 
 Purpose:
 - Add the local usage sink boundary.
@@ -64,6 +70,8 @@ Depends on:
 
 ### 6. `add-windows-foreground-capture`
 
+Status: OpenSpec artifacts created.
+
 Purpose:
 - Add the Windows adapter for foreground window capture.
 - Capture process identity, executable path/name, app metadata, and window title.
@@ -75,6 +83,8 @@ Depends on:
 
 ### 7. `add-windows-activity-signals`
 
+Status: OpenSpec artifacts created.
+
 Purpose:
 - Add Windows idle, lock/unlock, sleep/resume, logout, and shutdown signal capture.
 - Translate platform events into host-neutral agent/application events.
@@ -84,6 +94,8 @@ Depends on:
 - `add-attention-domain-contracts`
 
 ### 8. `add-user-agent-runtime`
+
+Status: OpenSpec artifacts created.
 
 Purpose:
 - Add the per-user headless agent process.
@@ -100,6 +112,8 @@ Depends on:
 
 ### 9. `add-agent-restart-recovery`
 
+Status: OpenSpec artifacts created.
+
 Purpose:
 - Make backend recovery deterministic after crash, reboot, or agent restart.
 - Close or mark open spans correctly.
@@ -112,6 +126,8 @@ Depends on:
 
 ### 10. `add-agent-startup-registration`
 
+Status: OpenSpec artifacts created.
+
 Purpose:
 - Register the per-user agent to start at sign-in.
 - Provide a reversible install/uninstall path for backend testing.
@@ -121,6 +137,8 @@ Depends on:
 - `add-user-agent-runtime`
 
 ### 11. `add-backend-diagnostics`
+
+Status: OpenSpec artifacts created.
 
 Purpose:
 - Add backend-only inspection paths for verification.
@@ -132,6 +150,8 @@ Depends on:
 - `add-local-usage-persistence`
 
 ### 12. `backend-mvp-hardening`
+
+Status: OpenSpec artifacts created.
 
 Purpose:
 - Run end-to-end Windows verification.
@@ -181,7 +201,7 @@ graph TD
   Diagnostics --> Hardening
 
   classDef artifactsCreated fill:#2563eb,stroke:#93c5fd,stroke-width:1px,color:#ffffff
-  class Scaffold,Contracts artifactsCreated
+  class Scaffold,Contracts,SpanBuilder,GapModeling,Persistence,WindowsCapture,WindowsSignals,Runtime,Recovery,Startup,Diagnostics,Hardening artifactsCreated
 ```
 
 Nodes with the blue marker have OpenSpec artifacts created.
