@@ -41,7 +41,7 @@ To maintain repository integrity, agents MUST follow these rules:
 ## Terminology
 - **OpenSpec**: An artifact-driven workflow for managing software changes (features, fixes, etc.) through structured specifications and tasks.
 - **openspec-***: Agent skills for interacting with an OpenSpec change workflow.
-- **convetional-commits**: An agent skill for generating a `git` commit message following the Conventional Commits v1.0 specification.
+- **conventional-commits**: An agent skill for generating a `git` commit message following the Conventional Commits v1.0 specification.
 - **nhc-openspec-commit**: A skill that uses the `conventional-commits` skill to generate compliant `git` commit messages summarizing the changes made by an OpenSpec workflow.
 
 ## Process
@@ -49,11 +49,11 @@ To maintain repository integrity, agents MUST follow these rules:
 - An OpenSpec workflow MUST be used to plan new features and modifications of existing features (e.g. bug fixes). Warn the user if the `openspec` directory is missing or inaccessible.
 - A test-driven development (TDD) RED/GREEN/REFACTORING workflow using a `tdd` skill is required to test ALL code additions and modifications. Warn the user if the `tdd` skill is missing or inaccessible.
 - The `nhc-openspec-commit` skill MUST be used to generate a `git` commit message and commit changes made WITH an OpenSpec workflow, but only AFTER the OpenSpec change has been archived. Warn the user if the `nhc-openspec-commit` skill is missing or inaccessible.
-- The `conventional-commits` skill MUST be used to generate a `git` commit message for changes made OUTSiDE of an OpenSpec workflow. Warn the user if the `conventional-commits` skill is missing or inaccessible.
+- The `conventional-commits` skill MUST be used to generate a `git` commit message for changes made OUTSIDE of an OpenSpec workflow. Warn the user if the `conventional-commits` skill is missing or inaccessible.
 - NOTE: If unsure about which commit strategy applies, you MUST ask the user to avoid generating spurious or erroneous commits.
 ### Major Features
 - Major features are comprised of two or more distinct OpenSpec changes, e.g. an MVP for a new front-end user interface or a new back-end service.
-- You MUST use `openspec-explore` develop a high-level plan for implementing the individual changes comprising a major feature.
+- You MUST use `openspec-explore` to research and develop a plan for implementing the changes comprising a major feature.
 - You MUST use the `docs/plans/<major-feature-name>` directory as a workspace during `openspec-explore`:
   - You MUST ignore ALL files in `docs/plans/archive` unless the user explicitly requests to review them.
   - Before creating planning documents, you MUST **ask the user** to provide the name of the major feature if the user has not already provided one.
